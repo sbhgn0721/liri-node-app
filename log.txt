@@ -123,3 +123,9 @@ Country where the movie was produced: Belgium, Germany, Canada, France, USA, UK
 Language of the movie: English, Mohawk
 Plot of the movie: A boy stands on a station platform as a train is about to leave. Should he go with his mother or stay with his father? Infinite possibilities arise from this decision. As long as he doesn't choose, anything is possible.
 Actors in the movie: Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham
+
+Log spotify-this-song: 
+Artist Name: Harry Styles
+The song's name: Harry Styles
+A preview link of the song from Spotify: https://api.spotify.com/v1/albums/1FZKIm3JVDCxTchXDo5jOV
+The album that the song is from: Harry Styles
