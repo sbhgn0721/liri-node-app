@@ -1,0 +1,49 @@
+Log spotify-this-song: 
+Artist Name: Lil Nas X
+The song's name: Old Town Road
+A preview link of the song from Spotify: https://api.spotify.com/v1/albums/38kpkGLuPr1nNfD3iEyOlJ
+The album that the song is from: Old Town RoadLog concert-this: 
+Name of the artist/band: billie eilish
+Name of the venue: Margaret Court Arena
+Venue location: Melbourne
+Date of the Even: 05-03-2019Log movie-this: 
+Title of the movie: once
+Year the movie came out: 2007
+IMDB Rating of the movie: 7.9
+Rotten Tomatoes Rating of the movie: 97%
+Country where the movie was produced: Ireland
+Language of the movie: English, Czech
+Plot of the movie: A modern-day musical about a busker and an immigrant and their eventful week in Dublin, as they write, rehearse and record songs that tell their love story.
+Actors in the movie: Glen Hansard, Markéta Irglová, Hugh Walsh, Gerard Hendrick
+
+Log spotify-this-song: 
+Artist Name: Backstreet Boys
+The song's name: The Hits--Chapter One
+A preview link of the song from Spotify: https://api.spotify.com/v1/albums/1NslKOZobWxINFaFkLol3r
+The album that the song is from: The Hits--Chapter One
+Log spotify-this-song: 
+Artist Name: Lil Nas X
+The song's name: Old Town Road
+A preview link of the song from Spotify: https://api.spotify.com/v1/albums/38kpkGLuPr1nNfD3iEyOlJ
+The album that the song is from: Old Town Road
+Log concert-this: 
+Name of the artist/band: billie eilish
+Name of the venue: Margaret Court Arena
+Venue location: Melbourne
+Date of the Even: 05-03-2019
+
+Log movie-this: 
+Title of the movie: once
+Year the movie came out: 2007
+IMDB Rating of the movie: 7.9
+Rotten Tomatoes Rating of the movie: 97%
+Country where the movie was produced: Ireland
+Language of the movie: English, Czech
+Plot of the movie: A modern-day musical about a busker and an immigrant and their eventful week in Dublin, as they write, rehearse and record songs that tell their love story.
+Actors in the movie: Glen Hansard, Markéta Irglová, Hugh Walsh, Gerard Hendrick
+
+Log spotify-this-song: 
+Artist Name: Backstreet Boys
+The song's name: The Hits--Chapter One
+A preview link of the song from Spotify: https://api.spotify.com/v1/albums/1NslKOZobWxINFaFkLol3r
+The album that the song is from: The Hits--Chapter One

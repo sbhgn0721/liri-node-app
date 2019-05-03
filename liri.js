@@ -55,7 +55,6 @@ function spotifyThisSong(userInput) {
     var spotify = new Spotify(keys.spotify);
     //console.log(keys.spotify);
 
-
     if (!userInput) {
         userInput = "The Sign";
     } else {
@@ -63,34 +62,46 @@ function spotifyThisSong(userInput) {
             if (err) {
                 console.log('Error occurred: ' + err);
             } else {
-                
+
                 console.log("The following information is about this song:");
                 console.log("Artist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
-                 + "\nThe album that the song is from: " + data.tracks.items[0].album.name)
+                    + "\nThe album that the song is from: " + data.tracks.items[0].album.name)
             }
+
+            //Append text into log.txt file
+            var logSpotifyThisSong = "\nLog spotify-this-song: " + "\nArtist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
+                + "\nThe album that the song is from: " + data.tracks.items[0].album.name
+            fs.appendFile("log.txt", logSpotifyThisSong, function (err) {
+                if (err) throw err;
+            });
         });
-   }
-}
+    };
+
+};
 
 //concert-this artist/band name part
 function concertThis(userInput) {
-   
-    var queryURLForBandsInTownAPI = "https://rest.bandsintown.com/artists/" + userInput+ "/events?app_id=codingbootcamp"
+
+    var queryURLForBandsInTownAPI = "https://rest.bandsintown.com/artists/" + userInput + "/events?app_id=codingbootcamp"
 
     axios.get(queryURLForBandsInTownAPI).then(
         function (response) {
             console.log("The following information is about the band/artist:");
             //console.log(response);
             console.log("Name of the artist/band: " + userInput + "\nName of the venue: " + response.data[0].venue.name + "\nVenue location: " + response.data[0].venue.city + "\nDate of the Even: " + moment(response.data[0].datetime).format("MM-DD-YYYY"));
-        }
-    )
 
+            //Append text into log.txt file
+            var logConcertThis = "\nLog concert-this: " + "\nName of the artist/band: " + userInput + "\nName of the venue: " + response.data[0].venue.name + "\nVenue location: " + response.data[0].venue.city + "\nDate of the Even: " + moment(response.data[0].datetime).format("MM-DD-YYYY") + "\n";
+            fs.appendFile("log.txt", logConcertThis, function (err) {
+                if (err) throw err;
+            });
+        });
 }
 
 
 //movie-this movieName part
 function movieThis(userInput) {
-    
+
     if (!userInput) {
         userInput = "Mr. Nobody";
     } else {
@@ -99,10 +110,20 @@ function movieThis(userInput) {
             function (response) {
                 //console.log(response)
                 console.log("The following information is about the movie:");
-                console.log("Title of the movie: " + userInput+ "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
-                  + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
-                  + "\nActors in the movie: " + response.data.Actors);
-            })
+                console.log("Title of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
+                    + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
+                    + "\nActors in the movie: " + response.data.Actors);
+
+                //Append text into log.txt file
+                var logMovieThis = "\nLog movie-this: " + "\nTitle of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
+                    + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
+                    + "\nActors in the movie: " + response.data.Actors + "\n";
+
+                fs.appendFile("log.txt", logMovieThis, function (err) {
+                    if (err) throw err;
+                });
+
+            });
     }
 }
 
@@ -118,6 +139,12 @@ function getRandom() {
             var randomData = data.split(",");
             liriBot(randomData[0], randomData[1]);
         }
+    });
+};
+
+function logResults(data) {
+    fs.appendFile("log.txt", data, function(err) {
+        if (err) throw err;
     });
 };
 
