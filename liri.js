@@ -57,25 +57,26 @@ function spotifyThisSong(userInput) {
 
     if (!userInput) {
         userInput = "The Sign";
-    } else {
-        spotify.search({ type: "track", query: userInput }, function (err, data) {
-            if (err) {
-                console.log('Error occurred: ' + err);
-            } else {
 
-                console.log("The following information is about this song:");
-                console.log("Artist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
-                    + "\nThe album that the song is from: " + data.tracks.items[0].album.name)
-            }
+    }
+    spotify.search({ type: "track", query: userInput }, function (err, data) {
+        if (err) {
+            console.log('Error occurred: ' + err);
+        } else {
 
-            //Append text into log.txt file
-            var logSpotifyThisSong = "\nLog spotify-this-song: " + "\nArtist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
-                + "\nThe album that the song is from: " + data.tracks.items[0].album.name
-            fs.appendFile("log.txt", logSpotifyThisSong, function (err) {
-                if (err) throw err;
-            });
+            console.log("The following information is about this song:");
+            console.log("Artist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
+                + "\nThe album that the song is from: " + data.tracks.items[0].album.name)
+        }
+
+        //Append text into log.txt file
+        var logSpotifyThisSong = "\nLog spotify-this-song: " + "\nArtist Name: " + data.tracks.items[0].album.artists[0].name + "\nThe song's name: " + data.tracks.items[0].album.name + "\nA preview link of the song from Spotify: " + data.tracks.items[0].album.href
+            + "\nThe album that the song is from: " + data.tracks.items[0].album.name
+        fs.appendFile("log.txt", logSpotifyThisSong, function (err) {
+            if (err) throw err;
         });
-    };
+    });
+
 
 };
 
@@ -104,28 +105,28 @@ function movieThis(userInput) {
 
     if (!userInput) {
         userInput = "Mr. Nobody";
-    } else {
-        var queryUrlForOMDBAPI = "https://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=trilogy";
-        axios.request(queryUrlForOMDBAPI).then(
-            function (response) {
-                //console.log(response)
-                console.log("The following information is about the movie:");
-                console.log("Title of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
-                    + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
-                    + "\nActors in the movie: " + response.data.Actors);
-
-                //Append text into log.txt file
-                var logMovieThis = "\nLog movie-this: " + "\nTitle of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
-                    + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
-                    + "\nActors in the movie: " + response.data.Actors + "\n";
-
-                fs.appendFile("log.txt", logMovieThis, function (err) {
-                    if (err) throw err;
-                });
-
-            });
     }
+    var queryUrlForOMDBAPI = "https://www.omdbapi.com/?t=" + userInput + "&y=&plot=short&apikey=trilogy";
+    axios.request(queryUrlForOMDBAPI).then(
+        function (response) {
+            //console.log(response)
+            console.log("The following information is about the movie:");
+            console.log("Title of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
+                + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
+                + "\nActors in the movie: " + response.data.Actors);
+
+            //Append text into log.txt file
+            var logMovieThis = "\nLog movie-this: " + "\nTitle of the movie: " + userInput + "\nYear the movie came out: " + response.data.Year + "\nIMDB Rating of the movie: " + response.data.imdbRating
+                + "\nRotten Tomatoes Rating of the movie: " + response.data.Ratings[1].Value + "\nCountry where the movie was produced: " + response.data.Country + "\nLanguage of the movie: " + response.data.Language + "\nPlot of the movie: " + response.data.Plot
+                + "\nActors in the movie: " + response.data.Actors + "\n";
+
+            fs.appendFile("log.txt", logMovieThis, function (err) {
+                if (err) throw err;
+            });
+
+        });
 }
+
 
 
 //do-what-it-says-part
@@ -143,7 +144,7 @@ function getRandom() {
 };
 
 function logResults(data) {
-    fs.appendFile("log.txt", data, function(err) {
+    fs.appendFile("log.txt", data, function (err) {
         if (err) throw err;
     });
 };
